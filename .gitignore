@@ -10,6 +10,8 @@
 tmp
 dist
 node_modules
+# Exception for patch-package files
+!patches/**
 
 *.tsbuildinfo
 *.tmp.js
