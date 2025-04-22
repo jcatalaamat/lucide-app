@@ -33,13 +33,25 @@ The fixed file is located at:
 node_modules/one/node_modules/@react-native-masked-view/masked-view/js/MaskedView.js
 ```
 
+Additionally, you need to update the index.js file to use CommonJS syntax to match the MaskedView.js file:
+```
+node_modules/one/node_modules/@react-native-masked-view/masked-view/index.js
+```
+
+Replace its contents with:
+```javascript
+var MaskedView = require('./js/MaskedView');
+
+module.exports = MaskedView;
+```
+
 ### How to Apply the Fix After Reinstalling Dependencies
 
 If you reinstall dependencies (e.g., after a `yarn install` or `npm install`), you'll need to apply the fix again. You have two options:
 
 #### Option 1: Manual Edit
 
-Manually edit the file at `node_modules/one/node_modules/@react-native-masked-view/masked-view/js/MaskedView.js` and replace its contents with:
+1. Manually edit the file at `node_modules/one/node_modules/@react-native-masked-view/masked-view/js/MaskedView.js` and replace its contents with:
 
 ```javascript
 /**
@@ -109,6 +121,14 @@ var MaskedView = React.createClass({
 module.exports = MaskedView;
 ```
 
+2. Also edit the file at `node_modules/one/node_modules/@react-native-masked-view/masked-view/index.js` and replace its contents with:
+
+```javascript
+var MaskedView = require('./js/MaskedView');
+
+module.exports = MaskedView;
+```
+
 #### Option 2: Using patch-package (Recommended)
 
 1. Install patch-package if you haven't already:
@@ -116,7 +136,7 @@ module.exports = MaskedView;
    yarn add patch-package postinstall-postinstall --dev
    ```
 
-2. Create the patch:
+2. After making the manual edits to both `MaskedView.js` and `index.js`, create the patch:
    ```
    npx patch-package one
    ```

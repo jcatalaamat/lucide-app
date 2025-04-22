@@ -10,7 +10,7 @@
     "dev:clean": "one dev --clean",
     "prebuild:native": "one prebuild",
     "serve": "one serve",
-    "postinstall": "patch-package",
+    "postinstall": "echo 'Running postinstall patch-package...' && patch-package",
     "db:generate": "drizzle-kit generate",
     "db:check": "node --loader ts-node/esm scripts/check-connection.ts",
     "db:check:direct": "node --loader ts-node/esm scripts/check-connection-direct.ts",
