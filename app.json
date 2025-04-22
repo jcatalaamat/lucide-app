@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "one-tailwind-basic",
+    "slug": "one-tailwind-basic",
+    "sdkVersion": "52.0.0",
+    "newArchEnabled": true,
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "plugins": [
+      "vxrn/expo-plugin"
+    ],
+    "icon": "./public/app-icon.png",
+    "splash": {
+      "image": "./public/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "ios": {}
+  }
+}
