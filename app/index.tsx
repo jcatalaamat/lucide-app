@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 import { supabase } from '../lib/supabase';
+import { Link } from 'one';
 
 export default function Index() {
   const [posts, setPosts] = useState([]);
@@ -53,7 +54,14 @@ export default function Index() {
   
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Posts</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>Posts</Text>
+        <Link href="/coaching" asChild>
+          <TouchableOpacity style={styles.navButton}>
+            <Text style={styles.navButtonText}>Go to Coaching</Text>
+          </TouchableOpacity>
+        </Link>
+      </View>
       
       {loading ? (
         <View style={styles.loadingContainer}>
@@ -116,10 +124,25 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#f5f5f5',
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 16,
+  },
+  navButton: {
+    backgroundColor: '#4CAF50',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 4,
+  },
+  navButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
   loadingContainer: {
     flex: 1,

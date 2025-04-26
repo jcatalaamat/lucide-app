@@ -15,7 +15,8 @@
     "db:check": "node --loader ts-node/esm scripts/check-connection.ts",
     "db:check:direct": "node --loader ts-node/esm scripts/check-connection-direct.ts",
     "db:seed": "node --loader ts-node/esm scripts/seed.ts",
-    "db:setup": "node --loader ts-node/esm scripts/setup-supabase.ts"
+    "db:setup": "node --loader ts-node/esm scripts/setup-supabase.ts",
+    "commit": "git add . && git commit -m 'fix' && git push"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
